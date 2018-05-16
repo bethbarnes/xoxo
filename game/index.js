@@ -21,7 +21,8 @@ export default function reducer(state = {turn: 'X', board: board}, action) {
   switch(action.type){
     case 'MOVE':
       let newTurn = action.turn === 'X' ? 'O' : 'X'
-      return {turn: newTurn, board: board.setIn(action.position, action.turn)}
+      let newBoard = state.board.setIn(action.position, action.turn)
+      return {turn: newTurn, board: newBoard}
     default:
       return state
   }
